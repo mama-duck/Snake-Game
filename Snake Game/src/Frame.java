@@ -26,13 +26,13 @@ public class Frame extends JFrame implements KeyListener{
 		Timer t = new Timer(100, new ActionListener(){
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				s.MoveHead(dir);
 				// TODO Auto-generated method stub	
 				if(s.eat(a)) {
 					a.posX = r.nextInt(10)*50;
 					a.posY = r.nextInt(10)*50;
 					s.updateBody();
 					}
-				s.MoveHead(dir);
 				repaint();
 				}
 			}
@@ -49,6 +49,7 @@ public class Frame extends JFrame implements KeyListener{
 		
 		//updating the direction should change both x and y in each key.
 		//we don't wan the snake moving on a diagonal line
+		//directions are mixed up for each key
 		if(e.getKeyCode() == KeyEvent.VK_W) {
 			dir.x = -1;
 			//dir.y = 0;
