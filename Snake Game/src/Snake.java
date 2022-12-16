@@ -3,6 +3,9 @@ import java.awt.Point;
 import java.util.ArrayList;
 
 public class Snake {
+	//Good habit to make your attributes private
+	//Change and access them with methods for getting and setting
+	//example below
 	public int posx, posy, length, height, xd, yd;
 	public Color color;
 	ArrayList<Point>body = new ArrayList();//this adds a square to the snake
@@ -41,4 +44,11 @@ public class Snake {
 		posx = posx+(50*p.x);
 		posy = posy+(50*p.y);
 	}
+	
+	//getter
+	/*
+	public void getPosX(){
+		return posx;
+	}
+	*/
 }
