@@ -21,6 +21,8 @@ public class Frame extends JFrame implements KeyListener{
 		this.setVisible(true);
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		this.addKeyListener(this);
+		
+		//not taking any points off for the timer not running the logic is fine
 		Timer t = new Timer(100, new ActionListener(){
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -44,9 +46,12 @@ public class Frame extends JFrame implements KeyListener{
 	}
 	@Override
 	public void keyPressed(KeyEvent e) {
-
+		
+		//updating the direction should change both x and y in each key.
+		//we don't wan the snake moving on a diagonal line
 		if(e.getKeyCode() == KeyEvent.VK_W) {
 			dir.x = -1;
+			//dir.y = 0;
 		};
 		
 		if(e.getKeyCode() == KeyEvent.VK_A) {
@@ -74,8 +79,11 @@ public class Frame extends JFrame implements KeyListener{
 	}
 public void paint(Graphics g) {
 	super.paint(g);
+	//redundant if statement: if(f) if(f) are asking the same thing
+	//makes code easier to read and more efficient if this is under one statement
 	if(f) {	g.setColor(Color.MAGENTA);
 		g.drawOval(a.posX+50, a.posY+50, a.width, a.height);
+	//remove if and put draw rect with the oval
 	if(f) {g.setColor(s.color);
 		g.drawRect(s.xd+50, s.yd+50, 25, 25);
 			}
